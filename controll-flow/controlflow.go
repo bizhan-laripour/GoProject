@@ -32,3 +32,10 @@ func and(firstParam, secondParam string) {
 		fmt.Println(firstParam, secondParam, "you are an invalid user")
 	}
 }
+
+func statementInitialization(param string) {
+	if i := param; i == "hello" {
+		fmt.Println(i, " is not equals")
+	}
+
+}
