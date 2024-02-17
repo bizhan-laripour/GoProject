@@ -2,5 +2,7 @@ package main
 
 func main() {
 
-	getData(10, 11)
+	compareData(10, 11)
+	or(11, 4)
+	and("Bizhan", "Laripour")
 }
