@@ -1,10 +1,10 @@
-package functions
+package main
 
 /*
 *
 Single return function
 */
-func SingleReturnFunction(param1 string, param2 string) string {
+func singleReturnFunction(param1 string, param2 string) string {
 	return param1 + param2
 }
 
@@ -16,7 +16,7 @@ func multiReturnFunction() (int, int, int) {
 	return 1, 2, 3
 }
 
-func SumNumbers() int {
+func sumNumbers() int {
 	firstNumber, secondNumber, _ := multiReturnFunction()
 	return firstNumber + secondNumber
 }

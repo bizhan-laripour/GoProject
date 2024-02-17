@@ -1,7 +1,6 @@
 package main
 
 import (
-	"GoProject/functions"
 	"fmt"
 )
 
@@ -36,7 +35,7 @@ func main() {
 		className = "Golang"
 	)
 	fmt.Println(lastName, className)
-	fmt.Println(functions.SingleReturnFunction("hello", "bizhan"))
+	fmt.Println(singleReturnFunction("hello", "bizhan"))
 
-	fmt.Println(functions.SumNumbers())
+	fmt.Println(sumNumbers())
 }
