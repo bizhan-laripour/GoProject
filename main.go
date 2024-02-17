@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"GoProject/functions"
+	"fmt"
+)
 
 func main() {
 	// creating basic variable
@@ -33,4 +36,7 @@ func main() {
 		className = "Golang"
 	)
 	fmt.Println(lastName, className)
+	fmt.Println(functions.SingleReturnFunction("hello", "bizhan"))
+
+	fmt.Println(functions.SumNumbers())
 }
