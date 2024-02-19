@@ -4,6 +4,8 @@ import "fmt"
 
 func main() {
 	fmt.Println(array())
+	firstArrayCreation()
+	secondArrayCreation()
 	forOnArray()
 	runtimeError()
 	compileTimeError1()
@@ -16,6 +18,20 @@ func array() [3]int {
 	myArray[1] = 8
 	myArray[2] = 10
 	return myArray
+}
+
+func firstArrayCreation() {
+	myArray := [3]int{1, 2, 3}
+	for i := 0; i < 2; i++ {
+		fmt.Println(myArray[i])
+	}
+}
+
+func secondArrayCreation() {
+	myArray := [...]int{1, 2, 3, 4}
+	for i := 0; i < len(myArray); i++ {
+		fmt.Println(myArray[i])
+	}
 }
 
 func forOnArray() {
