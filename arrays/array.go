@@ -41,7 +41,7 @@ func forOnArray() {
 	}
 }
 
-// out of bound exception
+// out of bound exception in runtime
 func runtimeError() {
 	var myArray [3]int
 	for i := 0; i < 10; i++ {
@@ -49,7 +49,7 @@ func runtimeError() {
 	}
 }
 
-// An array cant resize after creation
+// An array cant resize after creation , out of bound exception in compile time
 func compileTimeError1() {
 	var myArray [3]int
 	myArray[0] = 1
@@ -58,7 +58,7 @@ func compileTimeError1() {
 	myArray[3] = 4
 }
 
-// out of bound exception
+// out of bound exception in compile time
 func compileTimeError2() {
 	var myArray [3]int
 	item := myArray[4]
