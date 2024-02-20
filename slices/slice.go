@@ -8,11 +8,14 @@ func main() {
 	dynamicArray()
 	dynamicArray2()
 	preAllocateDynamicArray()
-
 	mySlice := []int{1, 2, 3, 4}
 	secondSlice := []string{"hello", "world"}
 	iterateOverSlices(mySlice)
 	iterateOverStringSlices(secondSlice)
+	slice1 := []string{"hello", "world"}
+	printAndAppend("first", slice1)
+	slice2 := append(slice1, "and bizhan")
+	printAndAppend("second", slice2)
 
 }
 
@@ -72,5 +75,11 @@ func iterateOverSlices(slice []int) {
 func iterateOverStringSlices(slice []string) {
 	for i := 0; i < len(slice); i++ {
 		fmt.Println(slice[i])
+	}
+}
+
+func printAndAppend(title string, slice []string) {
+	for i := 0; i < len(slice); i++ {
+		fmt.Println(title, slice[i])
 	}
 }
