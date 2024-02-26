@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -19,6 +21,9 @@ func main() {
 	students2 := append(studentSlice2, student4)
 	class2 := Class{name: "B1", numberOfStudents: students2}
 	compare(class1, class2)
+	classes := []Class{class1, class2}
+
+	foreachLoopWithRange(classes)
 
 }
 
@@ -51,5 +56,17 @@ func compare(class1 Class, class2 Class) {
 		fmt.Println("second class is older than first class", class2.name, "is older than", class1.name)
 	} else {
 		fmt.Println("both of them are equal", class1.name, "is equals to ", class2.name)
+	}
+}
+
+func foreachLoopWithRange(classes []Class) {
+
+	for i, element := range classes {
+		fmt.Println(i, element.name)
+
+		for j, student := range element.numberOfStudents {
+
+			fmt.Println(j, student.name)
+		}
 	}
 }
