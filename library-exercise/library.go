@@ -59,8 +59,13 @@ func main() {
     // add book to library
     addBookToLibrary(book)
     addBookToLibrary(book2)
-    bookABook(book2, user)
+
+    // booking a book from library
+    bookABook(book, user)
     bookABook(book, user2)
+
+    getUsersWithBook()
+    getBookedBooksOfLibrary()
     fmt.Println(library)
 }
 
@@ -83,21 +88,64 @@ func registerUserToLibrary(user User) {
 }
 
 func bookABook(book Book, user User) {
-    book.isBooked = true
-    book.bookedBy = user.id
-    user.book = append(user.book, book)
-    for id, value := range library.bookSlice {
-       if value.ISBN == book.ISBN {
-          value.isBooked = true
-          value.bookedBy = user.id
-          library.bookSlice[id] = value
+    isBooked := checkIsBooked(book)
+    if !isBooked {
+       book.isBooked = true
+       book.bookedBy = user.id
+       user.book = append(user.book, book)
+       for id, value := range library.bookSlice {
+          if value.ISBN == book.ISBN {
+             value.isBooked = true
+             value.bookedBy = user.id
+             library.bookSlice[id] = value
+          }
        }
-    }
-    for id, value := range library.users {
-       if value.id == user.id {
-          value.book = append(value.book, book)
-          library.users[id] = value
-       }
+       for id, value := range library.users {
+          if value.id == user.id {
+             value.book = append(value.book, book)
+             library.users[id] = value
+          }
 
+       }
+       fmt.Println("book with name", book.name, "and ISBN", book.ISBN, "booked for user", user.name, user.lastName)
+    } else {
+       fmt.Println("book with name", book.name, "and ISBN", book.ISBN, "has been booked already")
     }
+}
+
+func checkIsBooked(book Book) bool {
+    for _, value := range library.bookSlice {
+       if value.ISBN == book.ISBN && value.isBooked {
+          return true
+       }
+    }
+    return false
+}
+
+func getAllBooksOfLibrary() []Book {
+    return library.bookSlice
+}
+
+func getBookedBooksOfLibrary() []Book {
+    books := library.bookSlice
+    booked := []Book{}
+    for _, value := range books {
+       if value.isBooked {
+          booked = append(booked, value)
+       }
+    }
+    fmt.Println(booked)
+    return booked
+}
+
+func getUsersWithBook() []User {
+    users := library.users
+    owner := []User{}
+    for _, user := range users {
+       if len(user.book) > 0 {
+          owner = append(owner, user)
+       }
+    }
+    fmt.Println(owner)
+    return owner
 }
