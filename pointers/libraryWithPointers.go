@@ -15,6 +15,7 @@ func main() {
     }
     addUserToUser(&user)
     addBookToLibrary(&book)
+    bookABook(&book, &user)
     fmt.Println(library)
 }
 
@@ -31,9 +32,11 @@ type User struct {
 }
 
 type Book struct {
-    user User
-    name string
-    ISBN string
+    user     User
+    name     string
+    ISBN     string
+    isBooked bool
+    bookedBy int
 }
 
 var books []Book
@@ -55,7 +58,17 @@ func addUserToUser(user *User) User {
     return *user
 }
 
-
-func bookABook(book *Book , user *User){
-    
+func bookABook(book *Book, user *User) {
+    pointer := &library
+    for _, value := range pointer.books {
+       if value.ISBN == book.ISBN && value.isBooked {
+          fmt.Println("this book is booked")
+          return
+       }
+    }
+    book.bookedBy = user.id
+    book.user = *user
+    book.isBooked = true
+    pointer.books = append(pointer.books, *book)
+    fmt.Println("book booked")
 }
