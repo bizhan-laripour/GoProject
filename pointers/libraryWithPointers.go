@@ -1,7 +1,9 @@
 package main
 
 import "fmt"
-
+/**
+with pointers latency will decrease and i dont know why!!!!
+*/
 func main() {
     book := Book{
        name: "golang",
