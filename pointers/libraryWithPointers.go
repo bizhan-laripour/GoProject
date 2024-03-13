@@ -1,3 +1,4 @@
+//this is pointers sample 
 package main
 
 import "fmt"
