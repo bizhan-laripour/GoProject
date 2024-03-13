@@ -1,4 +1,5 @@
 //this is a library that a user can book a book
+// this library developed by arrays and slices
 package main
 
 import "fmt"
