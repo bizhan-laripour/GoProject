@@ -1,3 +1,5 @@
+
+//this is some struct samples
 package main
 
 import "fmt"
